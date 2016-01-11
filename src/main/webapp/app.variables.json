@@ -1330,6 +1330,19 @@
     } ],
     "package" : "com.hrdb.Vacation"
   },
+  "staticVariable1" : {
+    "_id" : "wm-staticVariable1-wm.Variable-1452514107823",
+    "name" : "staticVariable1",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "dataBinding" : [ ],
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
   "supportedLocale" : {
     "_id" : "wm-wm.Variable1402640443182",
     "name" : "supportedLocale",
