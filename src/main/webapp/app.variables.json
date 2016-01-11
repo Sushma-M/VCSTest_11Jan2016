@@ -1,4 +1,17 @@
 {
+  "abc" : {
+    "_id" : "wm-abc-wm.Variable-1452515299040",
+    "name" : "abc",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "dataBinding" : [ ],
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
   "GoogleapisInvoke" : {
     "_id" : "wm-GoogleapisInvoke-wm.ServiceVariable-1452513282385",
     "name" : "GoogleapisInvoke",
