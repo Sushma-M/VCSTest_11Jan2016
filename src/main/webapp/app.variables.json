@@ -1492,8 +1492,10 @@
     "owner" : "App",
     "category" : "wm.Variable",
     "dataSet" : {
-      "en" : "English"
+      "en" : "English",
+      "te" : "తెలుగు"
     },
+    "dataBinding" : [ ],
     "type" : "string",
     "isList" : false,
     "saveInPhonegap" : false
