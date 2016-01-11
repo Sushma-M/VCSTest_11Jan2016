@@ -23,9 +23,23 @@ Application.$controller("MainPageController", ["$scope", function ($scope) {
     };
 
 }]);
+
+Application.$controller("VacationGrid1Controller", ["$scope",
+	function($scope) {
+		"use strict";
+		$scope.ctrlScope = $scope;
+	}
+]);
+
+Application.$controller("VacationLiveform1Controller", ["$scope",
+	function($scope) {
+		"use strict";
+		$scope.ctrlScope = $scope;
+	}
+]);
 </script>
 <script id="Main.variables.json">
-var _MainPage_Variables_ ={};
+var _MainPage_Variables_ ={ }
 </script>
 <script id="Main.html" type="text/ng-template">
 <wm-page data-ng-controller="MainPageController" name="mainpage" pagetitle="Main">
@@ -34,6 +48,59 @@ var _MainPage_Variables_ ={};
     <wm-content name="content">
         <wm-left-panel columnwidth="2" name="leftpanel" content="leftnav"></wm-left-panel>
         <wm-page-content columnwidth="8" paddingleft="15" paddingright="15" name="mainContent">
+            <wm-livegrid name="VacationLivegrid1" service="hrdb@Vacation">
+                <wm-grid deleterow="true" updaterow="true" insertrow="true" gridfirstrowselect="true" readonlygrid="false" name="VacationGrid1" title="Vacation" dataset="bind:Variables.HrdbVacationData.dataSet">
+                    <wm-grid-column binding="id" caption="Id" type="integer" primary-key="true" generator="identity" readonly="true" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="startdate" caption="Startdate" type="date" primary-key="false" generator="assigned" datepattern="yyyy-MM-dd" formatpattern="toDate" pcdisplay="true" mobiledisplay="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="enddate" caption="Enddate" type="date" primary-key="false" generator="assigned" datepattern="yyyy-MM-dd" formatpattern="toDate" pcdisplay="true" mobiledisplay="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="tenantid" caption="Tenantid" type="integer" primary-key="false" generator="assigned" pcdisplay="true" mobiledisplay="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="status" caption="Status" type="string" primary-key="false" generator="assigned" pcdisplay="true" mobiledisplay="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="type" caption="Type" type="string" primary-key="false" generator="assigned" pcdisplay="true" mobiledisplay="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="employee.eid" caption="Employee Eid" type="integer" primary-key="true" generator="identity" pcdisplay="true" mobiledisplay="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="employee.firstname" caption="Employee Firstname" type="string" primary-key="false" generator="assigned" disable-inline-editing="true" pcdisplay="true" mobiledisplay="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="employee.lastname" caption="Employee Lastname" type="string" primary-key="false" generator="assigned" disable-inline-editing="true" pcdisplay="true" mobiledisplay="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="employee.street" caption="Employee Street" type="string" primary-key="false" generator="assigned" disable-inline-editing="true" pcdisplay="true" mobiledisplay="true" readonly="false"></wm-grid-column>
+                </wm-grid>
+                <wm-liveform novalidate="false" title="Details" name="VacationLiveform1" dataset="bind:Variables.HrdbVacationData.dataSet" formlayout="inline">
+                    <wm-layoutgrid name="layoutgrid1">
+                        <wm-gridrow name="gridrow1">
+                            <wm-gridcolumn show="show" name="gridcolumn1" columnwidth="12">
+                                <wm-form-field name="employee" displayname="Employee" show="true" primary-key="false" generator="assigned" key="employee" type="list" is-related="true" required="required" pc-display="true" mobile-display="true" widget="select"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow2">
+                            <wm-gridcolumn show="hide" name="gridcolumn2" columnwidth="12">
+                                <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" key="id" type="integer" is-related="false" readonly="readonly" required="required" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn3" columnwidth="12">
+                                <wm-form-field name="startdate" displayname="Startdate" show="true" primary-key="false" generator="assigned" key="startdate" type="date" is-related="false" pc-display="true" mobile-display="true" widget="date"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow3">
+                            <wm-gridcolumn show="show" name="gridcolumn4" columnwidth="12">
+                                <wm-form-field name="enddate" displayname="Enddate" show="true" primary-key="false" generator="assigned" key="enddate" type="date" is-related="false" pc-display="true" mobile-display="true" widget="date"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow4">
+                            <wm-gridcolumn show="show" name="gridcolumn5" columnwidth="12">
+                                <wm-form-field name="tenantid" displayname="Tenantid" show="true" primary-key="false" generator="assigned" key="tenantid" type="integer" is-related="false" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow5">
+                            <wm-gridcolumn show="show" name="gridcolumn6" columnwidth="12">
+                                <wm-form-field name="status" displayname="Status" show="true" primary-key="false" generator="assigned" key="status" type="string" is-related="false" pc-display="true" mobile-display="true" widget="text" maxchars="255"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow6">
+                            <wm-gridcolumn show="show" name="gridcolumn7" columnwidth="12">
+                                <wm-form-field name="type" displayname="Type" show="true" primary-key="false" generator="assigned" key="type" type="string" is-related="false" pc-display="true" mobile-display="true" widget="text" maxchars="255"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="glyphicon glyphicon-remove-circle" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="save" class="form-save btn-success" iconclass="glyphicon glyphicon-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+                </wm-liveform>
+            </wm-livegrid>
         </wm-page-content>
         <wm-right-panel columnwidth="2" name="rightpanel" content="rightnav"></wm-right-panel>
     </wm-content>
